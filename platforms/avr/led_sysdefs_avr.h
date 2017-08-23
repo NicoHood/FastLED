@@ -13,10 +13,10 @@
 #include <avr/interrupt.h> // for cli/se definitions
 
 // Define the register types
-#if defined(ARDUINO) // && ARDUINO < 150
+//#if defined(ARDUINO) // && ARDUINO < 150
 typedef volatile       uint8_t RoReg; /**< Read only 8-bit register (volatile const unsigned int) */
 typedef volatile       uint8_t RwReg; /**< Read-Write 8-bit register (volatile unsigned int) */
-#endif
+//#endif
 
 
 // Default to disallowing interrupts (may want to gate this on teensy2 vs. other arm platforms, since the
