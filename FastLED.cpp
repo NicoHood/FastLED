@@ -233,7 +233,12 @@ void CFastLED::setMaxRefreshRate(uint16_t refresh, bool constrain) {
 extern "C" int atexit(void (* /*func*/ )()) { return 0; }
 
 #ifdef FASTLED_NEED_YIELD
-extern "C" void yield(void) __attribute__ ((weak, alias("__empty")));
+extern "C" {
+static void __empty() {
+	// Empty
+}
+void yield(void) __attribute__ ((weak, alias("__empty")));
+}
 #endif
 
 #ifdef NEED_CXX_BITS
